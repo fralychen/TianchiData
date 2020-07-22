@@ -10,6 +10,7 @@ from sklearn import tree
 from sklearn.tree import DecisionTreeClassifier as DTC, export_graphviz
 import pydot
 import pydotplus
+import re
 
 import time
 
@@ -22,12 +23,9 @@ Train_data.info()
 
 
 # %%
-Train_data
-
-
+Train_data.isnull().any()
 # %%
-numerical_cols = Train_data.select_dtypes(exclude = 'object').columns
-print(numerical_cols)
+Train_data.head()
 
 
 # %%
@@ -35,15 +33,16 @@ Train_data['CUST_AGE'] = Train_data.CUST_AGE.apply(lambda x: 1 if (x<=35 and x >
 Train_data['CAR_AGE'] = Train_data.CAR_AGE.apply(lambda x: 1 if (x <=730) else 2 if (x >=731 and x <= 1460) else 3 if (x >= 1461 and x <= 2190) else 4 if (x >= 2191 and x <= 3650) else 5)
 Train_data['CAR_PRICE'] = Train_data.CAR_PRICE.apply(lambda x: 1 if (x >=50000 and x <= 90000) else 2 if (x >= 90001 and x<= 150000) else 3 if (x >= 150001 and x <= 300000) else 4)
 Train_data['LOAN_AMOUNT'] = Train_data.LOAN_AMOUNT.apply(lambda x: 1 if (x <= 50000) else 2 if(x >=50001 and x <= 200000) else 3 if(x >= 200001 and x <= 500000) else 4)
-
+Train_data['CAR_MODEL'] = Train_data.CAR_MODEL.apply(lambda x: re.findall('\d', x)[0]).astype(int)
 
 # %%
 Train_data.head()
 
 
-# %%
-Train_data.isnull().any()
 
+# %%
+numerical_cols = Train_data.select_dtypes(exclude = 'object').columns
+print(numerical_cols)
 
 # %%
 feature_cols = [col for col in numerical_cols if col != 'IS_LOST']
