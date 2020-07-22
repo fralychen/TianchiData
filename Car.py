@@ -33,15 +33,14 @@ Train_data['LOAN_AMOUNT'] = Train_data.LOAN_AMOUNT.apply(lambda x: 1 if (x <= 50
 
 Train_data['CAR_MODEL'] = Train_data.CAR_MODEL.apply(lambda x: re.findall('\d', x)[0]).astype(int) #转换 int
 
+# %%
+Train_data.head()
 
 # %%
 # 获取数字特征列
 numerical_cols = Train_data.select_dtypes(exclude = 'object').columns
 print(numerical_cols)
 
-
-# %%
-Train_data.head()
 
 
 # %%
@@ -58,6 +57,7 @@ Train_data.isnull().any()
 feature_cols = [col for col in numerical_cols if col != 'IS_LOST']
 data = Train_data[feature_cols].fillna(value=0)
 target = Train_data['IS_LOST']
+data.head()
 
 
 # %%
