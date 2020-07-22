@@ -1,20 +1,20 @@
 digraph Tree {
 node [shape=box] ;
-0 [label="CAR_AGE <= 1.5\nentropy = 0.775\nsamples = 10122\nvalue = [7812, 2310]"] ;
-1 [label="entropy = 0.309\nsamples = 2997\nvalue = [2831, 166]"] ;
+0 [label="CAR_AGE <= 1.5\nentropy = 0.777\nsamples = 51075\nvalue = [39359, 11716]"] ;
+1 [label="entropy = 0.322\nsamples = 15404\nvalue = [14500, 904]"] ;
 0 -> 1 [labeldistance=2.5, labelangle=45, headlabel="True"] ;
-2 [label="CAR_AGE <= 2.5\nentropy = 0.882\nsamples = 7125\nvalue = [4981, 2144]"] ;
+2 [label="ALL_BUYINS_N <= 1.5\nentropy = 0.885\nsamples = 35671\nvalue = [24859, 10812]"] ;
 0 -> 2 [labeldistance=2.5, labelangle=-45, headlabel="False"] ;
-3 [label="ALL_BUYINS_N <= 1.5\nentropy = 0.811\nsamples = 4432\nvalue = [3326, 1106]"] ;
+3 [label="LOAN_PERIED <= 0.5\nentropy = 0.943\nsamples = 20510\nvalue = [13115, 7395]"] ;
 2 -> 3 ;
-5 [label="entropy = 0.89\nsamples = 2626\nvalue = [1818, 808]"] ;
+5 [label="ALL_BUYINS_N <= 0.5\nentropy = 0.995\nsamples = 2971\nvalue = [1368, 1603]"] ;
 3 -> 5 ;
-6 [label="entropy = 0.646\nsamples = 1806\nvalue = [1508, 298]"] ;
+7 [label="entropy = 0.0\nsamples = 453\nvalue = [0, 453]"] ;
+5 -> 7 ;
+8 [label="entropy = 0.995\nsamples = 2518\nvalue = [1368, 1150]"] ;
+5 -> 8 ;
+6 [label="entropy = 0.915\nsamples = 17539\nvalue = [11747, 5792]"] ;
 3 -> 6 ;
-4 [label="ALL_BUYINS_N <= 3.5\nentropy = 0.962\nsamples = 2693\nvalue = [1655, 1038]"] ;
+4 [label="entropy = 0.77\nsamples = 15161\nvalue = [11744, 3417]"] ;
 2 -> 4 ;
-7 [label="entropy = 0.982\nsamples = 2278\nvalue = [1319, 959]"] ;
-4 -> 7 ;
-8 [label="entropy = 0.702\nsamples = 415\nvalue = [336, 79]"] ;
-4 -> 8 ;
 }
