@@ -24,9 +24,12 @@ Train_data.info()
 
 # %%
 Train_data.isnull().any()
+
 # %%
 Train_data.head()
 
+# %%
+Train_data['CUST_AGE'] = Train_data.CUST_AGE.fillna(Train_data.CUST_AGE.mean())
 
 # %%
 Train_data['CUST_AGE'] = Train_data.CUST_AGE.apply(lambda x: 1 if (x<=35 and x >=16) else 2 if (x >= 36 and x <= 60) else 3)
@@ -36,6 +39,7 @@ Train_data['LOAN_AMOUNT'] = Train_data.LOAN_AMOUNT.apply(lambda x: 1 if (x <= 50
 Train_data['CAR_MODEL'] = Train_data.CAR_MODEL.apply(lambda x: re.findall('\d', x)[0]).astype(int)
 
 # %%
+Train_data.fillna(value=0)
 Train_data.head()
 
 
@@ -48,8 +52,6 @@ print(numerical_cols)
 feature_cols = [col for col in numerical_cols if col != 'IS_LOST']
 data = Train_data[feature_cols]
 target = Train_data['IS_LOST']
-data
-
 
 # %%
 dtc = DTC(criterion='entropy', max_depth=4, max_leaf_nodes=5)
