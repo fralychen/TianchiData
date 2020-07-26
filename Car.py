@@ -79,7 +79,10 @@ Image(graph.create_png())
 
 # %%
 with open('./tree.dot', 'w') as f:
-    f = export_graphviz(dtc, feature_names=data.columns, out_file=f)
+    f = export_graphviz(befordtc, feature_names=data.columns, out_file=f)
 graph = pydotplus.graph_from_dot_file('./tree.dot')
-graph.write_pdf("iris.pdf")
+#graph.write_pdf("iris.pdf")
 
+
+
+# %%
