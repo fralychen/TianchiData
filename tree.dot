@@ -5,7 +5,7 @@ node [shape=box] ;
 0 -> 1 [labeldistance=2.5, labelangle=45, headlabel="True"] ;
 2 [label="ALL_BUYINS_N <= 1.5\ngini = 0.422\nsamples = 35671\nvalue = [24859, 10812]"] ;
 0 -> 2 [labeldistance=2.5, labelangle=-45, headlabel="False"] ;
-3 [label="IS_LOAN <= 0.5\ngini = 0.461\nsamples = 20510\nvalue = [13115, 7395]"] ;
+3 [label="LOAN_PERIED <= 0.5\ngini = 0.461\nsamples = 20510\nvalue = [13115, 7395]"] ;
 2 -> 3 ;
 5 [label="ALL_BUYINS_N <= 0.5\ngini = 0.497\nsamples = 2971\nvalue = [1368, 1603]"] ;
 3 -> 5 ;
